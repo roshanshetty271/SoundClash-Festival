@@ -23,7 +23,7 @@ export default function ScheduleDay({ day, date, slots, color }: ScheduleDayProp
       {/* Slots */}
       <div className="divide-y-3 divide-black">
         {slots.map((slot, i) => (
-          <div key={i} className="p-4 flex items-center gap-4 hover:bg-black hover:text-yellow transition-colors group">
+          <div key={i} className="p-4 flex items-center gap-4 hover:bg-black hover:text-neon-yellow transition-colors group cursor-pointer">
             <div className="font-mono text-sm w-20 shrink-0">{slot.time}</div>
             <div className="flex-1">
               <div className="font-display font-bold uppercase">{slot.artist}</div>

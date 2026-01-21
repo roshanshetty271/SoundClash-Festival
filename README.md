@@ -1,104 +1,78 @@
-# SOUNDCLASH 2026 🎸
+# SOUNDCLASH 2026 🤘🎸
 
-A neobrutalist music festival landing page built with Next.js 14, TypeScript, and Tailwind CSS.
+A high-octane "Rock Grunge" music festival landing page built with Next.js 14, TypeScript, and Tailwind CSS. The design embraces a raw, anti-corporate aesthetic with distressed textures, glitch effects, and a dark "night mode" vibe.
 
-## Design Style
+## 🎸 Design Philosophy: "Rock Grunge"
 
-**Neobrutalism** — Raw, bold, anti-corporate, punk aesthetic featuring:
-- Thick black borders (3px)
-- Offset shadows (4px/8px, no blur)
-- Clashing primary colors (yellow, blue, red, green, pink)
-- Space Grotesk for headlines, Space Mono for body
-- Intentional visual chaos
+This isn't your average clean corporate site. It's built to look like a gig flyer found on a rainy street corner.
 
-## Tech Stack
+-   **Texture & Grit**: Distressed backgrounds, tape overlays, and paper textures.
+-   **Dark Mode Core**: A `void` black background (`#0a0a0a`) with high-contrast Neon Yellow (`#ccff00`) and Neon Pink (`#ff00ff`) accents.
+-   **Typography**: `Space Grotesk` (Headlines) and `Space Mono` (Data/Body) for a tech-meets-punk feel.
+-   **Motion**:
+    -   **Lenis Smooth Scroll**: Heavy, momentum-based scrolling.
+    -   **Glitch Effects**: CSS-based text tearing and displacement.
+    -   **Audio Visualizer**: React-based waveform that responds to user interaction.
+    -   **Zero-Lag Cursor**: Custom Bass Guitar cursor with direct 1:1 hardware tracking.
 
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Fonts:** Google Fonts (Space Mono, Space Grotesk)
-- **Images:** Picsum Photos (placeholder service)
+## 🛠 Tech Stack
 
-## Getting Started
+-   **Framework**: Next.js 14 (App Router)
+-   **Language**: TypeScript
+-   **Styling**: Tailwind CSS + `tailwind-merge`
+-   **Animation**: Framer Motion
+-   **Scroll**: Lenis
+-   **Icons**: Lucide React
+-   **Fonts**: Google Fonts (Space Mono, Space Grotesk)
 
-```bash
-# Install dependencies
-npm install
+## 🚀 Getting Started
 
-# Run development server
-npm run dev
+1.  **Install dependencies**:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-# Build for production
-npm run build
+2.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
 
-# Start production server
-npm start
-```
+3.  **Open the void**:
+    Navigate to [http://localhost:3000](http://localhost:3000).
 
-Open [http://localhost:3000](http://localhost:3000) to see the result.
-
-## Project Structure
+## 📂 Project Structure
 
 ```
 soundclash-festival/
 ├── app/
-│   ├── layout.tsx      # Root layout with fonts
-│   ├── page.tsx        # Main page
-│   └── globals.css     # Global styles + Tailwind
+│   ├── layout.tsx      # Root layout + Lenis SmoothScroll
+│   ├── page.tsx        # Main page assembly
+│   └── globals.css     # Global styles + Glitch animations
 ├── components/
+│   ├── Hero.tsx        # Glitch text & marquee
 │   ├── Navbar.tsx      # Fixed navigation
-│   ├── Hero.tsx        # Hero with marquee
-│   ├── ArtistCard.tsx  # Individual artist card
-│   ├── Lineup.tsx      # Artist grid section
-│   ├── TicketTier.tsx  # Ticket tier card
-│   ├── Tickets.tsx     # Tickets section
-│   ├── ScheduleDay.tsx # Daily schedule card
-│   ├── Schedule.tsx    # Full schedule section
-│   ├── Location.tsx    # Venue info section
-│   ├── FAQItem.tsx     # Accordion item
-│   ├── FAQ.tsx         # FAQ section
-│   └── Footer.tsx      # Footer
+│   ├── AudioVisualizer.tsx # Interactive background
+│   ├── CustomCursor.tsx    # Bass guitar cursor (No physics/lag)
+│   ├── Lineup.tsx      # Holographic artist cards
+│   ├── Schedule.tsx    # "Backstage Setlist" style
+│   ├── Location.tsx    # "Coordinates Locked" map
+│   ├── FAQ.tsx         # "Zine" style accordion
+│   └── ...
 ├── lib/
-│   └── data.ts         # Mock data (artists, schedule, FAQs)
+│   └── utils.ts        # Tailwind class merger
 └── public/
-    └── images/         # Image assets
+    └── images/         # Textures & Assets
 ```
 
-## Design Tokens
+## 🎨 Key Features
 
-### Colors
-- Yellow: `#FFE500` (Primary accent)
-- Blue: `#0047FF` (Secondary accent)
-- Red: `#FF3333` (Tertiary accent)
-- Green: `#00FF66` (Highlight)
-- Pink: `#FF66B2` (Highlight)
-- Cream: `#FFFEF0` (Background)
-
-### Shadows
-- `shadow-brutal`: `4px 4px 0px 0px #000000`
-- `shadow-brutal-lg`: `8px 8px 0px 0px #000000`
-- `shadow-brutal-hover`: `6px 6px 0px 0px #000000`
-
-## Features
-
-- ✅ Responsive design (mobile-first)
-- ✅ Smooth scroll navigation
-- ✅ Interactive FAQ accordion
-- ✅ Grayscale → color hover on artist images
-- ✅ Brutal button hover animations
-- ✅ Infinite marquee animation
-- ✅ Fixed navbar with mobile menu
-
-## Customization
-
-1. **Change colors:** Edit `tailwind.config.ts`
-2. **Update content:** Edit `lib/data.ts`
-3. **Modify layout:** Edit components in `/components`
-
-## License
-
-This is a portfolio/demonstration project. All festival content is fictional.
+-   **Global Smooth Scroll**: Custom implementation using `@studio-freight/lenis`.
+-   **Performance Optimized**: Heavy animations (Radar, Glitch) use `will-change-transform` and `transform-gpu` for solid 60fps.
+-   **Interactive Background**: A subtle audio visualizer that gives depth without distraction.
+-   **Responsive**: Mobile-first design that scales from phones to 4k desktops.
 
 ---
 
-Built with 🤘 by Roshan Shetty
+**Built with 🖤 by Roshan Shetty**

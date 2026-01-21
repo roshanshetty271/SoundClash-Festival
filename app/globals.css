@@ -3,104 +3,73 @@
 @tailwind utilities;
 
 :root {
-  /* Primary palette - CLASHING is intentional */
-  --yellow: #FFE500;
-  --blue: #0047FF;
-  --red: #FF3333;
-  --green: #00FF66;
-  --pink: #FF66B2;
+  /* Cyber-Clash Palette */
+  --neon-yellow: #ccff00;
+  --neon-pink: #ff00ff;
+  --electric-blue: #00ffff;
+  --void-black: #050505;
+  --zinc-900: #18181b;
+  --white: #ffffff;
   
-  /* Neutrals */
-  --black: #000000;
-  --white: #FFFFFF;
-  --cream: #FFFEF0;
-  
-  /* Borders - THICK */
-  --border-width: 3px;
-  --border-color: var(--black);
+  /* Accents */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.03);
 }
 
-/* Headlines: Chunky, uppercase, tight */
-h1, h2, h3 {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
-}
-
-h1 {
-  font-size: clamp(4rem, 15vw, 12rem);
-  font-weight: 900;
-}
-
-h2 {
-  font-size: clamp(2rem, 6vw, 4rem);
-  font-weight: 800;
-}
-
-h3 {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 700;
-}
-
-/* Body: Monospace */
 body {
+  background-color: var(--void-black);
+  color: var(--white);
   font-family: var(--font-mono);
-  font-size: 16px;
-  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none; /* Custom cursor will replace this */
 }
 
-/* Labels: Small mono, uppercase */
-.label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-/* Marquee animation */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 20s linear infinite;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Selection color */
+/* Selection */
 ::selection {
-  background-color: var(--yellow);
-  color: var(--black);
+  background-color: var(--neon-pink);
+  color: var(--white);
 }
 
-@layer components {
-  /* Brutal Button */
-  .btn-brutal {
-    @apply px-6 py-3 bg-yellow text-black font-mono font-bold uppercase;
-    @apply border-3 border-black shadow-brutal;
-    @apply hover:shadow-brutal-hover hover:translate-x-[-2px] hover:translate-y-[-2px];
-    @apply active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
-    @apply transition-all duration-150;
-  }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-yellow);
+}
 
-  /* Brutal Card */
-  .card-brutal {
-    @apply bg-white border-3 border-black shadow-brutal;
-    @apply hover:shadow-brutal-lg hover:translate-x-[-4px] hover:translate-y-[-4px];
-    @apply transition-all duration-150;
-  }
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
 
-  /* Brutal Input */
-  .input-brutal {
-    @apply w-full px-4 py-3 bg-white border-3 border-black;
-    @apply font-mono focus:outline-none focus:shadow-brutal;
-    @apply transition-all duration-150;
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+.text-stroke-hover:hover {
+  -webkit-text-stroke: 0px;
+  color: var(--neon-yellow);
+}
+
+/* Glitch Animation Keyframes */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@layer utilities {
+  .animate-glitch {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
   }
 }

@@ -9,25 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        yellow: "#FFE500",
-        blue: "#0047FF",
-        red: "#FF3333",
-        green: "#00FF66",
-        pink: "#FF66B2",
-        cream: "#FFFEF0",
+        neon: {
+          yellow: "#ccff00",
+          pink: "#ff00ff",
+          blue: "#00ffff",
+        },
+        void: "#050505",
+        zinc: {
+          900: "#18181b",
+          800: "#27272a",
+        },
       },
       fontFamily: {
         mono: ["var(--font-mono)", "monospace"],
         display: ["var(--font-display)", "sans-serif"],
       },
-      boxShadow: {
-        brutal: "4px 4px 0px 0px #000000",
-        "brutal-lg": "8px 8px 0px 0px #000000",
-        "brutal-hover": "6px 6px 0px 0px #000000",
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
-      borderWidth: {
-        3: "3px",
-      },
+      cursor: {
+        none: 'none',
+      }
     },
   },
   plugins: [],
