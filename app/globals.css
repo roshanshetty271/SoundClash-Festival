@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary palette - CLASHING is intentional */
+  --yellow: #FFE500;
+  --blue: #0047FF;
+  --red: #FF3333;
+  --green: #00FF66;
+  --pink: #FF66B2;
+  
+  /* Neutrals */
+  --black: #000000;
+  --white: #FFFFFF;
+  --cream: #FFFEF0;
+  
+  /* Borders - THICK */
+  --border-width: 3px;
+  --border-color: var(--black);
+}
+
+/* Headlines: Chunky, uppercase, tight */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+h1 {
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+}
+
+/* Body: Monospace */
+body {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Labels: Small mono, uppercase */
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+@layer components {
+  /* Brutal Button */
+  .btn-brutal {
+    @apply px-6 py-3 bg-yellow text-black font-mono font-bold uppercase;
+    @apply border-3 border-black shadow-brutal;
+    @apply hover:shadow-brutal-hover hover:translate-x-[-2px] hover:translate-y-[-2px];
+    @apply active:shadow-none active:translate-x-[4px] active:translate-y-[4px];
+    @apply transition-all duration-150;
+  }
+
+  /* Brutal Card */
+  .card-brutal {
+    @apply bg-white border-3 border-black shadow-brutal;
+    @apply hover:shadow-brutal-lg hover:translate-x-[-4px] hover:translate-y-[-4px];
+    @apply transition-all duration-150;
+  }
+
+  /* Brutal Input */
+  .input-brutal {
+    @apply w-full px-4 py-3 bg-white border-3 border-black;
+    @apply font-mono focus:outline-none focus:shadow-brutal;
+    @apply transition-all duration-150;
+  }
+}
