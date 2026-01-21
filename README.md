@@ -15,17 +15,7 @@ This isn't your average clean corporate site. It's built to look like a gig flye
     -   **Audio Visualizer**: React-based waveform that responds to user interaction.
     -   **Zero-Lag Cursor**: Custom Bass Guitar cursor with direct 1:1 hardware tracking.
 
-## 🛠 Tech Stack
-
--   **Framework**: Next.js 14 (App Router)
--   **Language**: TypeScript
--   **Styling**: Tailwind CSS + `tailwind-merge`
--   **Animation**: Framer Motion
--   **Scroll**: Lenis
--   **Icons**: Lucide React
--   **Fonts**: Google Fonts (Space Mono, Space Grotesk)
-
-## 🚀 Getting Started
+##  Getting Started
 
 1.  **Install dependencies**:
     ```bash
@@ -42,37 +32,13 @@ This isn't your average clean corporate site. It's built to look like a gig flye
 3.  **Open the void**:
     Navigate to [http://localhost:3000](http://localhost:3000).
 
-## 📂 Project Structure
-
-```
-soundclash-festival/
-├── app/
-│   ├── layout.tsx      # Root layout + Lenis SmoothScroll
-│   ├── page.tsx        # Main page assembly
-│   └── globals.css     # Global styles + Glitch animations
-├── components/
-│   ├── Hero.tsx        # Glitch text & marquee
-│   ├── Navbar.tsx      # Fixed navigation
-│   ├── AudioVisualizer.tsx # Interactive background
-│   ├── CustomCursor.tsx    # Bass guitar cursor (No physics/lag)
-│   ├── Lineup.tsx      # Holographic artist cards
-│   ├── Schedule.tsx    # "Backstage Setlist" style
-│   ├── Location.tsx    # "Coordinates Locked" map
-│   ├── FAQ.tsx         # "Zine" style accordion
-│   └── ...
-├── lib/
-│   └── utils.ts        # Tailwind class merger
-└── public/
-    └── images/         # Textures & Assets
-```
-
 ## 🎨 Key Features
 
--   **Global Smooth Scroll**: Custom implementation using `@studio-freight/lenis`.
--   **Performance Optimized**: Heavy animations (Radar, Glitch) use `will-change-transform` and `transform-gpu` for solid 60fps.
+-   **Global Smooth Scroll**: Custom implementation for a premium feel.
+-   **Performance Optimized**: Animations use hardware acceleration for solid 60fps.
 -   **Interactive Background**: A subtle audio visualizer that gives depth without distraction.
 -   **Responsive**: Mobile-first design that scales from phones to 4k desktops.
 
 ---
 
-**Built with 🖤 by Roshan Shetty**
+**Built with 🤘 by Roshan Shetty**
