@@ -13,7 +13,7 @@ export default function Schedule() {
         {/* Section header */}
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 bg-white text-black font-display font-black text-xl uppercase -rotate-2 transform">
-            Don't Miss A Beat
+            Don&apos;t Miss A Beat
           </div>
           <h2 className="font-display font-black text-6xl md:text-8xl uppercase text-white tracking-tighter mt-4">
             The Setlist
