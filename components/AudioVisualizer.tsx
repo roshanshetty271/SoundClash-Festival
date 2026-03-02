@@ -15,6 +15,8 @@ export default function AudioVisualizer() {
         let animationFrameId: number;
         let width = window.innerWidth;
         let height = window.innerHeight;
+        let isVisible = true;
+        let cachedScrollY = window.scrollY;
 
         const resize = () => {
             width = window.innerWidth;
@@ -23,34 +25,49 @@ export default function AudioVisualizer() {
             canvas.height = height;
         };
 
-        window.addEventListener("resize", resize);
+        const handleScroll = () => {
+            cachedScrollY = window.scrollY;
+        };
+
+        const handleVisibility = () => {
+            isVisible = document.visibilityState === "visible";
+            if (isVisible) {
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+
+        window.addEventListener("resize", resize, { passive: true });
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        document.addEventListener("visibilitychange", handleVisibility);
         resize();
 
-        // Wave parameters
         let time = 0;
         const waves = [
-            { color: "rgba(204, 255, 0, 0.05)", amplitude: 50, frequency: 0.005, speed: 0.02 }, // Neon Yellow
-            { color: "rgba(255, 0, 255, 0.03)", amplitude: 70, frequency: 0.003, speed: 0.015 }, // Neon Pink
-            { color: "rgba(0, 255, 255, 0.03)", amplitude: 30, frequency: 0.01, speed: 0.03 },   // Electric Blue
+            { color: "rgba(204, 255, 0, 0.05)", amplitude: 50, frequency: 0.005, speed: 0.02 },
+            { color: "rgba(255, 0, 255, 0.03)", amplitude: 70, frequency: 0.003, speed: 0.015 },
+            { color: "rgba(0, 255, 255, 0.03)", amplitude: 30, frequency: 0.01, speed: 0.03 },
         ];
 
+        const step = 3;
+
         const animate = () => {
+            if (!isVisible) return;
+
             ctx.clearRect(0, 0, width, height);
             time += 1;
+            const scrollFactor = cachedScrollY * 0.05;
 
-            waves.forEach((wave) => {
+            for (let w = 0; w < waves.length; w++) {
+                const wave = waves[w];
                 ctx.beginPath();
                 ctx.strokeStyle = wave.color;
-                ctx.lineWidth = 2; // Thin subtle lines
+                ctx.lineWidth = 2;
 
-                for (let x = 0; x < width; x++) {
-                    // Sine wave formula: y = amplitude * sin(frequency * x + time * speed)
-                    // Added some noise based on scroll Y to make it react to "movement"
-                    const scrollFactor = window.scrollY * 0.05;
+                for (let x = 0; x < width; x += step) {
                     const y =
                         height / 2 +
                         wave.amplitude * Math.sin(x * wave.frequency + time * wave.speed + scrollFactor * 0.01) +
-                        Math.sin(x * 0.01 + time * 0.01) * 20; // Extra noise
+                        Math.sin(x * 0.01 + time * 0.01) * 20;
 
                     if (x === 0) {
                         ctx.moveTo(x, y);
@@ -59,7 +76,7 @@ export default function AudioVisualizer() {
                     }
                 }
                 ctx.stroke();
-            });
+            }
 
             animationFrameId = requestAnimationFrame(animate);
         };
@@ -68,6 +85,8 @@ export default function AudioVisualizer() {
 
         return () => {
             window.removeEventListener("resize", resize);
+            window.removeEventListener("scroll", handleScroll);
+            document.removeEventListener("visibilitychange", handleVisibility);
             cancelAnimationFrame(animationFrameId);
         };
     }, []);

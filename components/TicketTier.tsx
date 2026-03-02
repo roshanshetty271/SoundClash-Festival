@@ -41,7 +41,7 @@ export default function TicketTier({
         </h3>
       </div>
 
-      <div className="p-8 text-center bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-opacity-5">
+      <div className="p-8 text-center noise-texture bg-opacity-5">
         <div className="font-mono text-zinc-500 text-sm mb-1 uppercase tracking-widest">Admit One</div>
         <div className="flex items-center justify-center gap-2 mb-8">
           <span className="font-display font-black text-6xl text-zinc-900">${price}</span>

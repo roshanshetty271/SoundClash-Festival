@@ -1,5 +1,3 @@
-"use client";
-
 import FAQItem from "./FAQItem";
 import { faqs } from "@/lib/data";
 
@@ -7,7 +5,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="relative py-20 md:py-32 bg-zinc-900 border-t-8 border-black">
       {/* Background Texture */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 noise-texture opacity-20 mix-blend-overlay pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         {/* Section header */}

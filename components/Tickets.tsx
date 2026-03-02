@@ -1,8 +1,5 @@
-"use client";
-
 import TicketTier from "./TicketTier";
 import { ticketTiers } from "@/lib/data";
-import { motion } from "framer-motion";
 
 export default function Tickets() {
   return (

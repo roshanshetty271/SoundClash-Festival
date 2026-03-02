@@ -1,5 +1,3 @@
-"use client";
-
 import ScheduleDay from "./ScheduleDay";
 import { schedule } from "@/lib/data";
 
@@ -7,7 +5,7 @@ export default function Schedule() {
   return (
     <section id="schedule" className="relative py-20 md:py-32 bg-zinc-950 overflow-hidden">
       {/* Background Texture */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-soft-light pointer-events-none" />
+      <div className="absolute inset-0 noise-texture opacity-10 mix-blend-soft-light pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Section header */}

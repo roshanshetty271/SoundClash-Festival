@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Space_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
-import AudioVisualizer from "@/components/AudioVisualizer";
-import SmoothScroll from "@/components/SmoothScroll";
+import dynamic from "next/dynamic";
+
+const AudioVisualizer = dynamic(() => import("@/components/AudioVisualizer"), {
+  ssr: false,
+});
+const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
+  ssr: false,
+});
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -29,9 +34,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${spaceMono.variable} ${spaceGrotesk.variable}`}>
-      <body className="bg-void text-white antialiased cursor-none selection:bg-neon-pink selection:text-white">
+      <body className="bg-void text-white antialiased selection:bg-neon-pink selection:text-white">
         <SmoothScroll />
-        <CustomCursor />
         <AudioVisualizer />
         <div className="relative z-10">
           {children}

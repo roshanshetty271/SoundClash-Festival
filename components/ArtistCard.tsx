@@ -42,10 +42,11 @@ export default function ArtistCard({
             alt={name}
             fill
             className="object-cover"
-            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 16vw"
+            loading="lazy"
+            sizes={isHeadliner ? "(max-width: 768px) 100vw, 33vw" : "(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 16vw"}
           />
           {/* Noise Overlay */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-multiply pointer-events-none" />
+          <div className="absolute inset-0 noise-texture opacity-30 mix-blend-multiply pointer-events-none" />
 
           {isHeadliner && (
             <div className="absolute bottom-0 left-0 w-full bg-red-600 text-white font-display font-black uppercase text-center py-1 tracking-widest text-sm">

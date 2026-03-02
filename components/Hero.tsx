@@ -28,7 +28,7 @@ export default function Hero() {
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            className="font-display font-black text-6xl md:text-9xl tracking-tighter text-white mix-blend-difference relative z-20 will-change-transform transform-gpu"
+            className="font-display font-black text-6xl md:text-9xl tracking-tighter text-white mix-blend-difference relative z-20 transform-gpu"
           >
             SOUND
           </motion.h1>
@@ -37,7 +37,7 @@ export default function Hero() {
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 10, delay: 0.1 }}
-            className="font-display font-black text-6xl md:text-9xl tracking-tighter text-neon-yellow absolute top-8 md:top-16 lg:top-24 z-10 opacity-80 mix-blend-overlay animate-glitch will-change-transform transform-gpu"
+            className="font-display font-black text-6xl md:text-9xl tracking-tighter text-neon-yellow absolute top-8 md:top-16 lg:top-24 z-10 opacity-80 mix-blend-overlay animate-glitch transform-gpu"
           >
             CLASH
           </motion.h1>
@@ -46,7 +46,7 @@ export default function Hero() {
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 10, delay: 0.1 }}
-            className="font-display font-black text-6xl md:text-9xl tracking-tighter text-transparent text-stroke relative z-20 mt-[-2rem] md:mt-[-4rem] will-change-transform transform-gpu"
+            className="font-display font-black text-6xl md:text-9xl tracking-tighter text-transparent text-stroke relative z-20 mt-[-2rem] md:mt-[-4rem] transform-gpu"
           >
             CLASH
           </motion.h1>

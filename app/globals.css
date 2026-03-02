@@ -21,7 +21,6 @@ body {
   color: var(--white);
   font-family: var(--font-mono);
   overflow-x: hidden;
-  cursor: none; /* Custom cursor will replace this */
 }
 
 /* Selection */
@@ -58,6 +57,11 @@ body {
   color: var(--neon-yellow);
 }
 
+/* Noise texture (self-hosted, no external request) */
+.noise-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 /* Glitch Animation Keyframes */
 @keyframes glitch {
   0% { transform: translate(0); }
@@ -70,6 +74,6 @@ body {
 
 @layer utilities {
   .animate-glitch {
-    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both 6;
   }
 }
